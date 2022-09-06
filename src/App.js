@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Contador from "./components/contador/contador";
+import Header from "./components/header/header";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import BasicExample from "./pruevas";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          hola eze
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Header />
+      {/* <Contador/> */}
+      
+
+      <ItemListContainer />
+
     </div>
   );
 }
