@@ -13,10 +13,11 @@ const ItemDetailConteiner = ({ productos = [] }) => {
         })
     }
     Prueva()
+    
     return (
         <div>
             {productos.map((prod) => <ItemDetail producto={prod} key={prod.id} />)}
-
+            
 
         </div>
     )

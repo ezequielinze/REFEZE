@@ -1,10 +1,16 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import foto1 from '../../assets/remera_blanca.png'
-import Contador from '../contador/contador';
+import ItemDetailConteiner from '../itemDetailConteiner/itemDetailConteiner';
+
 
 function BasicExample({ producto }) {
-    
+
+    const prueva = () => {
+        console.log('sii esto anda')
+            
+    }
+
     return (
         <Card className='m-5' style={{ width: '18rem' }}>
             <Card.Img variant="top" src={foto1} />
@@ -14,8 +20,8 @@ function BasicExample({ producto }) {
                     <p>Precio: {producto.precio}</p>
                     <small>Stock disponible: {producto.stock}</small>
                 </Card.Text>
-                <Contador producto={producto.stock} key={producto.id}/>
-                <Button className='my-2' variant="primary">comprar</Button>
+
+                <Button className='my-2' variant="primary" onClick={prueva} >ver detalle</Button>
             </Card.Body>
         </Card>
     );
