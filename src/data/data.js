@@ -3,35 +3,39 @@
 const stock = [
     {
         id: 1,
-        nombre: 'Remera 1',
+        nombre: 'Remera',
         precio: 1000,
         img: '',
         stock: 5,
-        desc: ''
+        desc: '',
+        categ: 'remera'
     },
     {
         id: 2,
-        nombre: 'Remera 2',
+        nombre: 'Remera',
         precio: 2000,
         img: '',
         stock: 10,
-        desc: ''
+        desc: '',
+        categ: 'remera'
     },
     {
         id: 3,
-        nombre: 'Remera 3',
+        nombre: 'Pantalon',
         precio: 3000,
         img: '',
         stock: 15,
-        desc: ''
+        desc: '',
+        categ: 'pantalon'
     },
     {
         id: 4,
-        nombre: 'Remera 4',
+        nombre: 'Zapatos',
         precio: 4000,
         img: '',
         stock: 20,
-        desc: ''
+        desc: '',
+        categ: 'zapato'
     }
 ]
 

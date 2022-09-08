@@ -1,24 +1,37 @@
+import { useEffect, useState } from "react"
+import { useParams } from 'react-router-dom'
+import pedirDatos from "../../helpers/pedirDato"
 import ItemDetail from "../itemDetail/itemDetail"
 
 
 const ItemDetailConteiner = ({ productos = [] }) => {
 
-    const Prueva = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(<ItemDetail />)
-
-                console.log()
-            }, 2000)
-        })
-    }
-    Prueva()
+    const [item, setItem] = useState(null)
+    const { itemId } = useParams()
+    const [loading, setLoading] = useState(true)
     
+    useEffect(() => {
+        setLoading(true)
+
+        pedirDatos()
+            .then((res) => {
+                setItem(res.find((prod) => prod.id === Number(itemId)))
+            })
+            .catch(err => console.log(err))
+            .finally(() => {
+                setLoading(false)
+            })
+        
+
+    }, [])
+
     return (
         <div>
-            {productos.map((prod) => <ItemDetail producto={prod} key={prod.id} />)}
-            
-
+            {
+                loading
+                ? <h2>Loading...</h2>
+                : <ItemDetail item={item} />
+            }
         </div>
     )
 

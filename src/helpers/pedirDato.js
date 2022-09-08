@@ -5,7 +5,7 @@ const pedirDatos = () => {
         setTimeout(() => {
             resolve(stock)
             // console.log(stock)
-        }, 3000)
+        }, 1000)
     })
 }
 

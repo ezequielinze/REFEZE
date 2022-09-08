@@ -2,13 +2,13 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import foto1 from '../../assets/remera_blanca.png'
 import ItemDetailConteiner from '../itemDetailConteiner/itemDetailConteiner';
-
+import { Link } from 'react-router-dom'
 
 function BasicExample({ producto }) {
 
     const prueva = () => {
         console.log('sii esto anda')
-            
+
     }
 
     return (
@@ -20,8 +20,10 @@ function BasicExample({ producto }) {
                     <p>Precio: {producto.precio}</p>
                     <small>Stock disponible: {producto.stock}</small>
                 </Card.Text>
-
-                <Button className='my-2' variant="primary" onClick={prueva} >ver detalle</Button>
+                <Link to={`/item/${producto.id}`}>
+                    <Button className='my-2' variant="primary" onClick={prueva} >ver detalle</Button>
+                </Link>
+               
             </Card.Body>
         </Card>
     );

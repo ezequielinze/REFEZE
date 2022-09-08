@@ -4,30 +4,44 @@ import Prueva from "../../pruevas"
 import Contador from "../contador/contador"
 import ItemDetailConteiner from "../itemDetailConteiner/itemDetailConteiner"
 import ItemList from "../itemList/itemList"
+import { useParams } from 'react-router-dom'
 
 
 const ItemListContainer = () => {
-   
+
     const [productos, setProductos] = useState([])
+    const { categoryId } = useParams()
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        setLoading(true)
         pedirDatos()
-            .then( (res) => {
-                setProductos(res)
+            .then((res) => {
+                if (!categoryId) {
+                    setProductos(res)
+                } else {
+                    setProductos(res.filter((prod) => prod.categ === categoryId))
+                }
             })
-            .catch( (error) => {
+            .catch((error) => {
                 console.log(error)
             })
             .finally(() => {
-                // console.log("Fin del proceso")
+                setLoading(false)
             })
-    }, [])
+    }, [categoryId])
 
 
     return (
         <div>
-            <ItemDetailConteiner productos={productos}/>
-            {/* <ItemList productos={productos}/> */}
+            {
+                loading
+                    ? <h2>Cargando...</h2>
+                    : <ItemList productos={productos}/>
+            }
+
+            {/* <ItemDetailConteiner productos={productos}/> */}
+            
         </div>
     )
 }
