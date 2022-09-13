@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 function BasicExample({ producto }) {
 
     const prueva = () => {
-        console.log('sii esto anda')
+        // console.log('sii esto anda')
 
     }
 

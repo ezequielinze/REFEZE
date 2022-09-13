@@ -2,24 +2,24 @@
 import { useState } from "react"
 import './contador.scss'
 
-const Contador = ({ producto }) => {
-    
-    
-    
+const Contador = ({ max, iniciador, setiniciador }) => {
+
+
+
 
     // [contador, evento] = iniciador de contador
-    const [iniciador, setiniciador] = useState(0)
-const nro = producto;
-console.log(nro)
+    // const [iniciador, setiniciador] = useState(0)
+    const nro = max;
+
 
     // funcion suma
     const Sumar = () => {
-        
+
 
         // evento le decimos que hacer
-        if (iniciador <  {nro} ) {
+        if (iniciador < nro) {
             setiniciador(iniciador + 1)
-            
+
         }
     }
     // funcion resta
@@ -33,10 +33,10 @@ console.log(nro)
     return (
         <div className="contbtn">
             <div>
-                              
+
 
                 <button className="btn btn-primary" onClick={Restar}> - </button>
-                <span className="btn">{nro}</span>
+                <span className="btn">{iniciador}</span>
                 <button className="btn btn-primary" onClick={Sumar}> + </button>
             </div>
 
