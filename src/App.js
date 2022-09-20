@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import BasicExample from "./pruevas";
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import ItemDetailConteiner from "./components/itemDetailConteiner/itemDetailConteiner";
+import Cart from "./components/cart/cart";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='*' element={<Navigate to="/" />} />
           <Route path='/productos/:categoryId' element={<ItemListContainer />} />
           <Route path='/item/:itemId' element={<ItemDetailConteiner/>} />
+          <Route path='/cart' element={<Cart/>} />
 
         </Routes>
 

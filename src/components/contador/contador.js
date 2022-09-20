@@ -2,7 +2,7 @@
 import { useState } from "react"
 import './contador.scss'
 
-const Contador = ({ max, iniciador, setiniciador }) => {
+const Contador = ({ max, iniciador, setiniciador, Agregar }) => {
 
 
 
@@ -38,6 +38,7 @@ const Contador = ({ max, iniciador, setiniciador }) => {
                 <button className="btn btn-primary" onClick={Restar}> - </button>
                 <span className="btn">{iniciador}</span>
                 <button className="btn btn-primary" onClick={Sumar}> + </button>
+                <button className='btn btn-primary mx-3' onClick={Agregar}>comprar</button>
             </div>
 
 

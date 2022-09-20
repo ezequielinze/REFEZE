@@ -18,7 +18,7 @@ function Header() {
         <li className='nav_menu'><Link className='menu' to='/productos/remera'>REMERAS</Link></li>
         <li className='nav_menu'><Link className='menu' to='/productos/pantalon'>PANTALONES</Link></li>
         <li className='nav_menu'><Link className='menu' to='/productos/zapato'>ZAPATOS</Link></li>
-        <li className='nav_menu'><Link className='menu' to='/productos/carrito'><img className='carrito' src={carrito} /></Link></li>
+        <li className='nav_menu'><Link className='menu' to='/cart'><img className='carrito' src={carrito} /></Link></li>
       </nav>
 
 
