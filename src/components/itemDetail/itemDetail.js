@@ -2,40 +2,40 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import foto1 from '../../assets/remera_negra.png';
 import Contador from '../contador/contador';
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link } from 'react-router-dom'
 import Cart from '../cart/cart';
+import { CartContext } from '../../Context/CartContext';
 
 const itemDetail = ({ item }) => {
 
-    const Carrito = []
+    const {cart, addToCart} = useContext(CartContext)
+    // console.log(cart)
+
+    // simpre importar useState
+    const [llamado, setLlamado] = useState(0)
 
     const Agregar = () => {
 
-        const cart = {
-            // console.log({
+        const itemToCart = {
+            id: item.id,
             nombre: item.nombre,
-            cantidad : llamado
-            // })
+            cantidad: llamado,
+            precio: item.precio
+            
         }
-        Carrito.push(cart)
-        console.log(Carrito)
+
+        addToCart(itemToCart)
+
+        
 
 
 
     }
 
-    // simpre importar useState
-    const [llamado, setLlamado] = useState(0)
-
-    const precio = item.precio
 
 
-    const mult = llamado * precio;
-
-
-
-
+    
     return (
         <div className='conteiner m-5'>
             <h1>detalle:</h1>
@@ -47,7 +47,7 @@ const itemDetail = ({ item }) => {
             </p>
             <p>Precio: {item.precio}</p>
             <Contador max={item.stock} iniciador={llamado} setiniciador={setLlamado} Agregar={Agregar} />
-            
+
             <hr />
 
             <Link to="/Cart" className='btn btn-primary'>Terminar tu compra</Link>
