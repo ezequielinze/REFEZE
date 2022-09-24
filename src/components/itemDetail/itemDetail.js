@@ -9,8 +9,9 @@ import { CartContext } from '../../Context/CartContext';
 
 const itemDetail = ({ item }) => {
 
-    const {cart, addToCart} = useContext(CartContext)
-    // console.log(cart)
+    //setCart cambiamos a addToCarr
+    const { cart, addToCart, isInCart } = useContext(CartContext)
+    // console.log(isInCart)
 
     // simpre importar useState
     const [llamado, setLlamado] = useState(0)
@@ -22,20 +23,15 @@ const itemDetail = ({ item }) => {
             nombre: item.nombre,
             cantidad: llamado,
             precio: item.precio
-            
-        }
 
+        }
         addToCart(itemToCart)
 
-        
-
-
-
     }
+    // console.log(cart, isInCart(item.id))
 
 
 
-    
     return (
         <div className='conteiner m-5'>
             <h1>detalle:</h1>
@@ -46,11 +42,16 @@ const itemDetail = ({ item }) => {
                 Vas a querer en todos los colores. 👅🤜🤛
             </p>
             <p>Precio: {item.precio}</p>
-            <Contador max={item.stock} iniciador={llamado} setiniciador={setLlamado} Agregar={Agregar} />
-
             <hr />
+            {isInCart(item.id)
+                ? <Link to="/Cart" className='btn btn-primary'>Terminar tu compra</Link>
+                : <Contador max={item.stock} iniciador={llamado} setiniciador={setLlamado} Agregar={Agregar} />
+            }
 
-            <Link to="/Cart" className='btn btn-primary'>Terminar tu compra</Link>
+
+
+
+
         </div>
 
     );

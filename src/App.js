@@ -14,17 +14,38 @@ function App() {
 
   const [cart, setCart] = useState([])
 
+  //funciones para cargar carrito
   const addToCart = (item) => {
-    //         // const newCart = cart.slice()
-    //         // newCart.push(itemToCart)
+    // const newCart = cart.slice()
+    // newCart.push(itemToCart)
+    //setCart(newCart) o 
     setCart([...cart, item])
+  }
+
+  //funciones para total
+  const cartTotal = () => {
+    return cart.reduce((acc, item) => acc + item.cantidad * item.precio, 0)
+  }
+
+  //funciones boton borrar carrito
+  const emptyCart = () => {
+    setCart([])
+  }
+
+  //funcion que devuelve true o false de un array
+  const isInCart = (id) => {
+    return cart.some((item) => item.id === id)
   }
 
   return (
     <div className="App">
+      {/* context.provider enviamos a todos los nodos las funciones que agregemos */}
       <CartContext.Provider value={{
         cart,
-        addToCart
+        addToCart,
+        cartTotal,
+        emptyCart,
+        isInCart
       }}>
         <BrowserRouter>
           <Header />
