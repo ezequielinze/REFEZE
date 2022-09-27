@@ -3,7 +3,7 @@
 const stock = [
     {
         id: 1,
-        nombre: 'Remera',
+        nombre: 'Remera1',
         precio: 1000,
         img: '',
         stock: 5,
@@ -12,7 +12,7 @@ const stock = [
     },
     {
         id: 2,
-        nombre: 'Remera',
+        nombre: 'Remera2',
         precio: 2000,
         img: '',
         stock: 10,

@@ -38,7 +38,8 @@ const Contador = ({ max, iniciador, setiniciador, Agregar }) => {
                 <button className="btn btn-primary" onClick={Restar}> - </button>
                 <span className="btn">{iniciador}</span>
                 <button className="btn btn-primary" onClick={Sumar}> + </button>
-                <button className='btn btn-primary mx-3' onClick={Agregar}>comprar</button>
+                {/* disabled anulamos el boton pero queda a la vista */}
+                <button disabled={iniciador === 0} className='btn btn-primary mx-3' onClick={Agregar}>comprar</button>
             </div>
 
 

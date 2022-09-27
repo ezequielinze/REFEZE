@@ -37,6 +37,11 @@ function App() {
     return cart.some((item) => item.id === id)
   }
 
+  //crea un nuevo array evitando el mismo id llamado
+  const removeItem = (id) => {
+    setCart(cart.filter((item) => item.id !== id))
+  }
+
   return (
     <div className="App">
       {/* context.provider enviamos a todos los nodos las funciones que agregemos */}
@@ -45,7 +50,8 @@ function App() {
         addToCart,
         cartTotal,
         emptyCart,
-        isInCart
+        isInCart,
+        removeItem
       }}>
         <BrowserRouter>
           <Header />
