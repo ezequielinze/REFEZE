@@ -35,7 +35,7 @@ const itemDetail = ({ item }) => {
     return (
         <div className='conteiner m-5'>
             <h1>detalle:</h1>
-            <img src={foto1}></img>
+            <img src={item.img}></img>
             <h4>{item.nombre}</h4>
             <p>Detalles: Remeron en jersey de algodon, con estampa #ENSIMISMA.
                 en plastisol transparente. Toda la onda este remeron. Basicos siempre.

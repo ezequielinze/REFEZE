@@ -15,9 +15,9 @@ function Header() {
 
       <nav className='nav'>
         <li className='nav_menu'><Link className='menu' to='/'>INICIO</Link></li>
-        <li className='nav_menu'><Link className='menu' to='/productos/remera'>REMERAS</Link></li>
-        <li className='nav_menu'><Link className='menu' to='/productos/pantalon'>PANTALONES</Link></li>
-        <li className='nav_menu'><Link className='menu' to='/productos/zapato'>ZAPATOS</Link></li>
+        <li className='nav_menu'><Link className='menu' to='/productos/remeras'>REMERAS</Link></li>
+        <li className='nav_menu'><Link className='menu' to='/productos/pantalones'>PANTALONES</Link></li>
+        <li className='nav_menu'><Link className='menu' to='/productos/gorras'>GORRAS</Link></li>
         <li className='nav_menu'><Link className='menu' to='/cart'><img className='carrito' src={carrito} /></Link></li>
       </nav>
 

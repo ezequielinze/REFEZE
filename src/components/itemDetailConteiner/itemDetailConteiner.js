@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom'
 import pedirDatos from "../../helpers/pedirDato"
 import ItemDetail from "../itemDetail/itemDetail"
+import { doc, getDoc } from "firebase/firestore"
+import { db } from "../../firebase/configuracion"
 
 
 const ItemDetailConteiner = ({ productos = [] }) => {
@@ -13,14 +15,15 @@ const ItemDetailConteiner = ({ productos = [] }) => {
     useEffect(() => {
         setLoading(true)
 
-        pedirDatos()
-            .then((res) => {
-                setItem(res.find((prod) => prod.id === Number(itemId)))
-            })
-            .catch(err => console.log(err))
-            .finally(() => {
-                setLoading(false)
-            })
+        const itemRef = doc(db, 'productos', itemId)
+        
+        getDoc(itemRef)
+        .then((doc) => {
+            setItem({id: doc.id, ...doc.data()})
+        })
+        .finally(() => {
+            setLoading(false)
+        })
         
 
     }, [])

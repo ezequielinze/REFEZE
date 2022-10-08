@@ -13,7 +13,7 @@ function BasicExample({ producto }) {
 
     return (
         <Card className='m-5' style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={foto1} />
+            <Card.Img variant="top" src={producto.img} />
             <Card.Body>
                 <Card.Title><h4>{producto.nombre}</h4></Card.Title>
                 <Card.Text>
