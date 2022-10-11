@@ -8,6 +8,7 @@ import ItemDetailConteiner from "./components/itemDetailConteiner/itemDetailCont
 import Cart from "./components/cart/cart";
 import { CartContext } from './Context/CartContext';
 import { useState } from "react";
+import Checkout from "./checkout/checkout";
 
 
 function App() {
@@ -20,6 +21,11 @@ function App() {
     // newCart.push(itemToCart)
     //setCart(newCart) o 
     setCart([...cart, item])
+  }
+
+  // funcion para optener la cantidad
+  const cartQuantity = () => {
+    return cart.reduce((acc, item) => acc + item.cantidad, 0)
   }
 
   //funciones para total
@@ -42,6 +48,10 @@ function App() {
     setCart(cart.filter((item) => item.id !== id))
   }
 
+  const terminarCompra = () => {
+    setCart([])
+  }
+
   return (
     <div className="App">
       {/* context.provider enviamos a todos los nodos las funciones que agregemos */}
@@ -51,7 +61,9 @@ function App() {
         cartTotal,
         emptyCart,
         isInCart,
-        removeItem
+        removeItem,
+        cartQuantity,
+        terminarCompra
       }}>
         <BrowserRouter>
           <Header />
@@ -63,6 +75,7 @@ function App() {
             <Route path='/productos/:categoryId' element={<ItemListContainer />} />
             <Route path='/item/:itemId' element={<ItemDetailConteiner />} />
             <Route path='/cart' element={<Cart />} />
+            <Route path='/checkout' element={<Checkout />} />
 
           </Routes>
 

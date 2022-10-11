@@ -37,10 +37,6 @@ const itemDetail = ({ item }) => {
             <h1>detalle:</h1>
             <img src={item.img}></img>
             <h4>{item.nombre}</h4>
-            <p>Detalles: Remeron en jersey de algodon, con estampa #ENSIMISMA.
-                en plastisol transparente. Toda la onda este remeron. Basicos siempre.
-                Vas a querer en todos los colores. 👅🤜🤛
-            </p>
             <p>Precio: {item.precio}</p>
             <hr />
             {isInCart(item.id)

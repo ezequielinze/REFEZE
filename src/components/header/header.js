@@ -2,9 +2,13 @@ import './header.scss'
 import carrito from '../../assets/carrito2.png'
 import { Link } from 'react-router-dom'
 
+
 function Header() {
+
+ 
+
   return (
-    <header className="contenedor">
+    <header className="contenedor ">
 
       <Link to='/'>
         <h1 className='logo'>REFEZE</h1>
